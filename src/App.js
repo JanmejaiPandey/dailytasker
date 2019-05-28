@@ -7,6 +7,8 @@ import './App.css';
 function App() {
     const [tasks, setTasks] = useState([]);
     const [task, setTask] = useState("");
+    const [description, setDescription] = useState("");
+    const [i, setID] = useState();
 
     useEffect(() => {
         async function fetchData() {
@@ -16,9 +18,9 @@ function App() {
         }
         fetchData();
     }, []);
-    function postData(n) {
+    function postData(n,desc) {
         var url = 'https://dailytaskerapi.herokuapp.com/tasks/';
-        var data = { task: n, description: "default" };
+        var data = { task: n, description: desc };
 
         fetch(url, {
             method: 'POST', // or 'PUT'
@@ -31,10 +33,24 @@ function App() {
             .catch(error => console.error('Error:', error));
 
     }
+    const remove = (id) => {
+        fetch("https://dailytaskerapi.herokuapp.com/tasks/" + id, {
+            method: 'DELETE'
+        }).then(() => {
+            console.log('removed');
+        }).catch(err => {
+            console.error(err)
+        });
+    }
+
+        const handleDelete = (event) => {
+            event.preventDefault();
+            remove(i);
+        }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        postData(task);
+        postData(task,description);
     }
 
     const refreshPage = () => {
@@ -44,9 +60,9 @@ function App() {
         { key: 'column1', name: 'id', fieldName: 'id', minWidth: 100, maxWidth: 200, isResizable: true },
         { key: 'column2', name: 'Task', fieldName: 'task', minWidth: 100, maxWidth: 200, isResizable: true },
         { key: 'column3', name: 'Description', fieldName: 'description', minWidth: 100, maxWidth: 200, isResizable: true }
-      ];
+    ];
     return (
-        <fabric>
+        <Fabric>
             <form onSubmit={handleSubmit}>
                 <TextField
                     label="Task:"
@@ -56,9 +72,39 @@ function App() {
                     value={task}
                     onChange={e => setTask(e.target.value)}
                 />
+                <TextField
+                    label="Description"
+                    underlined
+                    placeholder="Enter description here"
+                    value={description}
+                    onChange={e => setDescription(e.target.value)}
+                />
                 <DefaultButton
                     type="submit"
                     text="Submit"
+                />
+                <PrimaryButton
+                    data-automation-id="test"
+                    text="Refresh"
+                    onClick={refreshPage}
+                    allowDisabledFocus={true}
+                />
+            </form>
+            <form onSubmit={handleDelete}>
+                <TextField
+                    label="ID:"
+                    underlined
+                    required
+                    placeholder="Enter id here"
+                    value={i}
+                    onChange={e => setID(e.target.value)}
+                />
+                <DefaultButton
+                    data-automation-id="test"
+                    text="Delete"
+                    type="submit"
+                    onClick={handleDelete}
+                    allowDisabledFocus={true}
                 />
                 <PrimaryButton
                     data-automation-id="test"
@@ -100,7 +146,8 @@ function App() {
             //onItemInvoked={this._onItemInvoked}
             />
             {/* </MarqueeSelection> */}
-        </fabric>
+           
+        </Fabric>
     );
 }
 
