@@ -63,6 +63,8 @@ function App() {
     ];
     return (
         <Fabric>
+            <center><h1>Daily Tasker</h1></center>
+            <hr />
             <form onSubmit={handleSubmit}>
                 <TextField
                     label="Task:"
