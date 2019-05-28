@@ -11,14 +11,10 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "engines": {
-    "node": "12.3.1",
-    "npm": "6.9.0"
   },
   "eslintConfig": {
     "extends": "react-app"
