@@ -9,7 +9,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Fab from '@material-ui/core/Fab';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { setISODay } from 'date-fns';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -19,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     },
     fab: {
         margin: theme.spacing(1),
-      },
+    },
     table: {
         minWidth: 650,
     },
@@ -29,7 +28,6 @@ function SimpleTable() {
 
     const classes = useStyles();
     const [tasks, setTasks] = useState([]);
-    const [i, setID] = useState();
     const remove = (id) => {
         fetch("https://dailytaskerapi.herokuapp.com/tasks/" + id, {
             method: 'DELETE'
@@ -40,7 +38,8 @@ function SimpleTable() {
         });
     }
     const handleDelete = (e) => {
-        console.log(e.key);
+        console.log(e.target.dataset.id);
+        remove(e.target.dataset.id);
     }
     useEffect(() => {
         async function fetchData() {
@@ -68,9 +67,9 @@ function SimpleTable() {
                             </TableCell>
                             <TableCell align="middle">{t.description}</TableCell>
                             <TableCell>
-                             <Fab aria-label="Delete" color="primary" size="small" className={classes.fab}>
-                                <DeleteIcon onClick={handleDelete}/>
-                            </Fab>
+                                <Fab aria-label="Delete" color="primary" size="small" className={classes.fab}>
+                                    <DeleteIcon data-id={t.id} onClick={handleDelete} />
+                                </Fab>
                             </TableCell>
                         </TableRow>
                     )
