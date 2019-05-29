@@ -38,8 +38,8 @@ function SimpleTable() {
         });
     }
     const handleDelete = (e) => {
-        console.log(e.target.dataset.id);
-        remove(e.target.dataset.id);
+        console.log(e.currentTarget.dataset.id);
+        remove(e.currentTarget.dataset.id);
     }
     useEffect(() => {
         async function fetchData() {
@@ -55,7 +55,7 @@ function SimpleTable() {
                 <TableHead>
                     <TableRow>
                         <TableCell>Task</TableCell>
-                        <TableCell align="middle">Description</TableCell>
+                        <TableCell align="center">Description</TableCell>
                         <TableCell align="center">DeleteTask</TableCell>
                     </TableRow>
                 </TableHead>
@@ -65,9 +65,15 @@ function SimpleTable() {
                             <TableCell component="th" scope="row">
                                 {t.task}
                             </TableCell>
-                            <TableCell align="middle">{t.description}</TableCell>
+                            <TableCell align="center">{t.description}</TableCell>
                             <TableCell align="center">
-                                <Fab aria-label="Delete" data-id={t.id} onClick={handleDelete} color="primary" size="small" className={classes.fab}>
+                                <Fab 
+                                aria-label="Delete" 
+                                data-id={t.id} 
+                                onClick={handleDelete} 
+                                style = {{backgroundColor:'#ffffff',color:"#FF8C00"}}
+                                size="small" 
+                                className={classes.fab}>
                                     <DeleteIcon  />
                                 </Fab>
                             </TableCell>
