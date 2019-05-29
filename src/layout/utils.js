@@ -88,11 +88,11 @@ function FloatingActionButtons() {
 
     return (
         <div>
-            <Fab color="secondary" size="medium" aria-label="Add" className={classes.fab}>
-                <AddIcon onClick={handleOpen} />
+            <Fab color="secondary" onClick={handleOpen} size="medium" aria-label="Add" className={classes.fab}>
+                <AddIcon  />
             </Fab>
-            <Fab color="primary" size="medium" aria-label="Add" className={classes.fab}>
-                <RefreshIcon onClick={refreshPage} />
+            <Fab color="primary" onClick={refreshPage} size="medium" aria-label="Add" className={classes.fab}>
+                <RefreshIcon />
             </Fab>
             <div>
                 <Modal

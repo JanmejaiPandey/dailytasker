@@ -67,8 +67,8 @@ function SimpleTable() {
                             </TableCell>
                             <TableCell align="middle">{t.description}</TableCell>
                             <TableCell>
-                                <Fab aria-label="Delete" color="primary" size="small" className={classes.fab}>
-                                    <DeleteIcon data-id={t.id} onClick={handleDelete} />
+                                <Fab aria-label="Delete" data-id={t.id} onClick={handleDelete} color="primary" size="small" className={classes.fab}>
+                                    <DeleteIcon  />
                                 </Fab>
                             </TableCell>
                         </TableRow>
