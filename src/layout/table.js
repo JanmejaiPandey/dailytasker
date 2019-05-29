@@ -56,7 +56,7 @@ function SimpleTable() {
                     <TableRow>
                         <TableCell>Task</TableCell>
                         <TableCell align="middle">Description</TableCell>
-                        <TableCell>DeleteTask</TableCell>
+                        <TableCell align="center">DeleteTask</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -66,7 +66,7 @@ function SimpleTable() {
                                 {t.task}
                             </TableCell>
                             <TableCell align="middle">{t.description}</TableCell>
-                            <TableCell>
+                            <TableCell align="center">
                                 <Fab aria-label="Delete" data-id={t.id} onClick={handleDelete} color="primary" size="small" className={classes.fab}>
                                     <DeleteIcon  />
                                 </Fab>

@@ -101,6 +101,7 @@ function FloatingActionButtons() {
                     open={open}
                     onClose={handleClose}
                 >
+                    <center>
                     <div style={modalStyle} className={classes.paper}>
                         <Typography variant="h6" id="modal-title">
                             Add New Task
@@ -129,7 +130,8 @@ function FloatingActionButtons() {
                             <br />
                             <Button variant="contained" color="primary" type="submit" >Add</Button>
                         </form>
-                    </div>
+                        </div>
+                        </center>
                 </Modal>
             </div>
         </div>
