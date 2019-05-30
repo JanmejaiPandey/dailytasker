@@ -67,7 +67,6 @@ function SimpleTable() {
                             </TableCell>
                             <TableCell 
                             style={{
-                            whiteSpace:"normal",
                             wordWrap:"break-word"
                                  }}
                             >
