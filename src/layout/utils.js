@@ -146,7 +146,7 @@ function FloatingActionButtons() {
                         
                             <Typography> Please Refresh Page after
                                 adding new task
-                        
+                        <br />
                             <Fab 
                                     style = {{backgroundColor:'#ffffff',color:"#FF8C00"}}
                                     onClick={refreshPage} 
