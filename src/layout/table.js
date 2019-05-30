@@ -65,7 +65,15 @@ function SimpleTable() {
                             <TableCell component="th" scope="row">
                                 {t.task}
                             </TableCell>
-                            <TableCell align="center">{t.description}</TableCell>
+                            <TableCell 
+                            align="center"
+                            style={{
+                            whiteSpace:"normal",
+                            wordWrap:"break-word"
+                                 }}
+                            >
+                            {t.description}
+                            </TableCell>
                             <TableCell align="center">
                                 <Fab 
                                 aria-label="Delete" 
