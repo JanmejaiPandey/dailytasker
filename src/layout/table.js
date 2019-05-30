@@ -66,7 +66,6 @@ function SimpleTable() {
                                 {t.task}
                             </TableCell>
                             <TableCell 
-                            align="center"
                             style={{
                             whiteSpace:"normal",
                             wordWrap:"break-word"
