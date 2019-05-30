@@ -115,7 +115,7 @@ function FloatingActionButtons() {
                 >
                     <center>
                     <div style={modalStyle} className={classes.paper}>
-                        <Typography variant="h6" id="modal-title">
+                        <Typography variant="h5" id="modal-title">
                             Add New Task
           </Typography>
                         <form onSubmit={handleSubmit}>
@@ -131,6 +131,7 @@ function FloatingActionButtons() {
                             />
                             <TextField
                                 id="outlined-with-placeholder"
+                                multiline
                                 label="Description"
                                 placeholder="Description"
                                 className={classes.textField}
@@ -141,6 +142,21 @@ function FloatingActionButtons() {
                             />
                             <br />
                             <Button variant="contained" color="primary" type="submit" >Add</Button>
+                            <br />
+                        
+                            <Typography> Please Refresh Page after
+                                adding new task
+                        
+                            <Fab 
+                                    style = {{backgroundColor:'#ffffff',color:"#FF8C00"}}
+                                    onClick={refreshPage} 
+                                    size="small" 
+                                    aria-label="refresh" 
+                                    className={classes.fab}
+                                    >
+                                        <RefreshIcon size="small"/>
+                                    </Fab>
+                                    </Typography>
                         </form>
                         </div>
                         </center>

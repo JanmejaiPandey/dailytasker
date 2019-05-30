@@ -32,7 +32,7 @@ function SimpleTable() {
         fetch("https://dailytaskerapi.herokuapp.com/tasks/" + id, {
             method: 'DELETE'
         }).then(() => {
-            console.log('removed');
+           window.location.reload();
         }).catch(err => {
             console.error(err)
         });
